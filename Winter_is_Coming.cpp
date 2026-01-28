@@ -10,9 +10,19 @@ void solve() {
 
     vector<int>v(n);
     int cnt=0;
-    for(auto &u:v){
-        cin>>u;
-        if(u<a)cnt++;
+    for(auto &u:v)cin>>u;
+
+    bool weared=false;
+
+    for(auto& u:v){
+        if(u>=a && u<=b) continue;
+        if(u<a){
+            if(!weared){
+                cnt++;
+                weared=true;
+            }
+        }
+        if(u>b && weared) weared=false;
     }
     cout<<cnt<<endl;
 }

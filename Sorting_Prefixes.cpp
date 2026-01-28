@@ -7,21 +7,13 @@ using namespace std;
 void solve() {
     int n;
     cin>>n;
-    vector<int>v(n);
-    for(auto &u:v) cin>>u;
-    for(int i=n-1;i>1;i--){
-        if(v[i]<v[i-1]){
-            cout<<v[i]<<endl;
-            return;
-        }
-        else if((v[i]-v[i-1]>1)){
-            cout<<v[i-1]<<endl;
-            return;
-        }
-        if(v[i]!=n) {
-            cout<<v[i]<<endl;
-            return;
-        }
+    vector<int>v(n),temp(n);
+    for(int i=0;i<n;i++){cin>>v[i];temp[i]=v[i];}
+
+    sort(temp.begin(),temp.end());
+    
+    for(int i=n-1;i>=0;i--){
+        if(temp[i]!=v[i]){cout<<v[i]<<" ";cout<<endl;return;}
     }
     cout<<0<<endl;
 }
