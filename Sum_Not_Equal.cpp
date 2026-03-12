@@ -7,23 +7,21 @@ using namespace std;
 void solve() {
     int n;
     cin>>n;
-    vector<int>v(n+1);
-    map<int,int>mp;
-    for(int i=1;i<=n;i++){
-        cin>>v[i];
-        mp[v[i]]=i;
+    vector<pair<int,int>>v;
+    
+    for(int i=0;i<n;i++){
+        int x;
+        cin>>x;
+        v.push_back({x,i+1});
     }
-    if(mp.size()<3){
+    sort(v.begin(),v.end());
+
+    if((v[0].first==v[n-1].first) && v[0].first==0){
         cout<<-1<<endl;
         return;
     }
-    sort(v.begin(),v.end());
-    int cnt=0;
-    for(auto it = mp.rbegin(); it != mp.rend(); it++){
-        if(cnt==3) break;
-        cout<<it->second<<" ";
-        cnt++;
-    }
+    
+    cout<<v[n-1].second<<" "<<v[n-2].second<<" "<<v[n-3].second;
     cout<<endl;
     
 }
