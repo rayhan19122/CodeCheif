@@ -7,20 +7,13 @@ using namespace std;
 void solve() {
     int n;
     cin>>n;
-    vector<int>v(n);
-    for(auto &u:v) cin>>u;
-    int curr=0;
-    int flag=0;
-    for(auto &u:v){
-        if((curr&u)>0){
-            flag++;
-            break;
-        }
-        curr|=u;
+    int mx=0;
+    for(int i=0;i<n;i++){
+        int x;
+        cin>>x;
+        mx=max(mx,x);
     }
-    if(flag) cout<<"No"<<endl;
-    else cout<<"Yes"<<endl;
-
+    cout<<mx<<endl;
 }
 
 signed main() {
